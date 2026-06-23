@@ -1,0 +1,26 @@
+---
+const links = [
+  { label: 'Capabilities', href: '#capabilities' },
+  { label: 'Tech Stack',   href: '#techstack'    },
+  { label: 'Why Us',       href: '#why-us'       },
+  { label: 'Contact',      href: '#contact'      },
+];
+---
+<footer class="border-t border-white/5 py-10 bg-[#060d1f]">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-3">
+      <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" class="text-white">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="text-slate-400 text-sm">© {new Date().getFullYear()} Cyberules. All rights reserved.</span>
+    </div>
+
+    <nav class="flex items-center gap-6">
+      {links.map(l => (
+        <a href={l.href} class="text-slate-500 hover:text-slate-300 text-sm transition-colors">{l.label}</a>
+      ))}
+    </nav>
+  </div>
+</footer>

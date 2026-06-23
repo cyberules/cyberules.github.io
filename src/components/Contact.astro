@@ -1,0 +1,81 @@
+---
+---
+<section id="contact" class="py-28 bg-[#060d1f]">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <span class="text-cyan-400 text-sm font-semibold uppercase tracking-widest">Get in touch</span>
+    <h2 class="mt-3 text-4xl md:text-5xl font-extrabold text-white">Let's build something<br/>resilient together.</h2>
+    <p class="mt-4 text-slate-400 text-lg max-w-xl mx-auto">
+      Tell us about your infrastructure challenges — we'll help you find the right path forward.
+    </p>
+
+    <form
+      name="contact"
+      method="POST"
+      action="https://formspree.io/f/placeholder"
+      class="mt-12 text-left space-y-5"
+    >
+      <div class="grid sm:grid-cols-2 gap-5">
+        <div>
+          <label class="block text-sm text-slate-400 mb-1.5 font-medium" for="name">Name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            placeholder="Jane Smith"
+            class="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white placeholder:text-slate-600 text-sm focus:outline-none focus:border-cyan-500/50 focus:bg-white/[0.06] transition-all"
+          />
+        </div>
+        <div>
+          <label class="block text-sm text-slate-400 mb-1.5 font-medium" for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            placeholder="jane@company.com"
+            class="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white placeholder:text-slate-600 text-sm focus:outline-none focus:border-cyan-500/50 focus:bg-white/[0.06] transition-all"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm text-slate-400 mb-1.5 font-medium" for="subject">Subject</label>
+        <input
+          id="subject"
+          name="subject"
+          type="text"
+          placeholder="Cloud migration, Kubernetes audit, DevSecOps…"
+          class="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white placeholder:text-slate-600 text-sm focus:outline-none focus:border-cyan-500/50 focus:bg-white/[0.06] transition-all"
+        />
+      </div>
+
+      <div>
+        <label class="block text-sm text-slate-400 mb-1.5 font-medium" for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          required
+          placeholder="Tell us about your project, tech stack, and what you're trying to achieve…"
+          class="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white placeholder:text-slate-600 text-sm focus:outline-none focus:border-cyan-500/50 focus:bg-white/[0.06] transition-all resize-none"
+        ></textarea>
+      </div>
+
+      <div class="flex items-center justify-between pt-2">
+        <p class="text-slate-500 text-sm">
+          Or reach us directly at
+          <a href="mailto:cyberuleslda@gmail.com" class="text-cyan-400 hover:text-cyan-300 transition-colors">
+            cyberuleslda@gmail.com
+          </a>
+        </p>
+        <button
+          type="submit"
+          class="px-7 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-sm hover:opacity-90 transition-opacity shadow-lg shadow-cyan-500/20"
+        >
+          Send message →
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

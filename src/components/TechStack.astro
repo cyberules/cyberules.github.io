@@ -1,0 +1,87 @@
+---
+const categories = [
+  {
+    label: 'Cloud Providers',
+    techs: [
+      { name: 'AWS',        color: '#FF9900' },
+      { name: 'Azure',      color: '#0089D6' },
+      { name: 'GCP',        color: '#4285F4' },
+    ],
+  },
+  {
+    label: 'Orchestration & GitOps',
+    techs: [
+      { name: 'Kubernetes', color: '#326CE5' },
+      { name: 'Helm',       color: '#0F1689' },
+      { name: 'ArgoCD',     color: '#EF7B4D' },
+      { name: 'Flux',       color: '#5468FF' },
+    ],
+  },
+  {
+    label: 'Infrastructure as Code',
+    techs: [
+      { name: 'Terraform',  color: '#7B42BC' },
+      { name: 'Pulumi',     color: '#8A3391' },
+      { name: 'Crossplane', color: '#EF4D3C' },
+      { name: 'Ansible',    color: '#EE0000' },
+    ],
+  },
+  {
+    label: 'Observability',
+    techs: [
+      { name: 'Prometheus', color: '#E6522C' },
+      { name: 'Grafana',    color: '#F46800' },
+      { name: 'OpenTelemetry', color: '#4DB9E8' },
+      { name: 'Datadog',    color: '#632CA6' },
+    ],
+  },
+  {
+    label: 'Security',
+    techs: [
+      { name: 'Vault',      color: '#FFCD00' },
+      { name: 'Trivy',      color: '#1904DA' },
+      { name: 'OPA',        color: '#7D3C98' },
+      { name: 'Falco',      color: '#00AEE1' },
+    ],
+  },
+  {
+    label: 'CI / CD & Containers',
+    techs: [
+      { name: 'GitHub Actions', color: '#2088FF' },
+      { name: 'Docker',     color: '#2496ED' },
+      { name: 'Containerd', color: '#575757' },
+      { name: 'Tekton',     color: '#FD495C' },
+    ],
+  },
+];
+---
+<section id="techstack" class="py-28 bg-[#060d1f]">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-cyan-400 text-sm font-semibold uppercase tracking-widest">Our toolkit</span>
+      <h2 class="mt-3 text-4xl md:text-5xl font-extrabold text-white">Tech Stack</h2>
+      <p class="mt-4 text-slate-400 text-lg max-w-2xl mx-auto">
+        We work with the best-in-class cloud-native tools — deployed in production at scale.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {categories.map(cat => (
+        <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.07]">
+          <h3 class="text-slate-400 text-xs font-semibold uppercase tracking-widest mb-4">{cat.label}</h3>
+          <div class="flex flex-col gap-3">
+            {cat.techs.map(tech => (
+              <div class="flex items-center gap-3">
+                <span
+                  class="w-2.5 h-2.5 rounded-full flex-shrink-0"
+                  style={`background-color: ${tech.color}`}
+                ></span>
+                <span class="text-slate-200 text-sm font-medium">{tech.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
