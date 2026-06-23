@@ -25,4 +25,32 @@ const {
   <body class="bg-[#060d1f] text-slate-300 font-['Inter',sans-serif] antialiased">
     <slot />
   </body>
+  <script>
+    import translations from '../i18n/translations';
+    import type { Lang } from '../i18n/translations';
+
+    function applyLang(lang: Lang) {
+      const t = translations[lang];
+      document.querySelectorAll<HTMLElement>('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n')!;
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+      document.querySelectorAll<HTMLElement>('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder')!;
+        if (t[key] !== undefined) (el as HTMLInputElement).placeholder = t[key];
+      });
+      document.querySelectorAll<HTMLButtonElement>('[data-lang-btn]').forEach(btn => {
+        btn.classList.toggle('lang-active', btn.dataset.langBtn === lang);
+      });
+      document.documentElement.lang = lang === 'pt' ? 'pt-PT' : 'en';
+      localStorage.setItem('cyberules-lang', lang);
+    }
+
+    document.querySelectorAll<HTMLButtonElement>('[data-lang-btn]').forEach(btn => {
+      btn.addEventListener('click', () => applyLang(btn.dataset.langBtn as Lang));
+    });
+
+    const saved = (localStorage.getItem('cyberules-lang') as Lang) || 'en';
+    applyLang(saved);
+  </script>
 </html>

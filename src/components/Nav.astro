@@ -1,9 +1,9 @@
 ---
 const navLinks = [
-  { label: 'Capabilities', href: '#capabilities' },
-  { label: 'Tech Stack',   href: '#techstack'    },
-  { label: 'Why Us',       href: '#why-us'       },
-  { label: 'Contact',      href: '#contact'      },
+  { label: 'Capabilities', href: '#capabilities', key: 'link.capabilities' },
+  { label: 'Tech Stack',   href: '#techstack',    key: 'link.techstack'   },
+  { label: 'Why Us',       href: '#why-us',       key: 'link.whyus'       },
+  { label: 'Contact',      href: '#contact',      key: 'link.contact'     },
 ];
 ---
 <header id="nav" class="fixed top-0 w-full z-50 transition-all duration-300">
@@ -22,6 +22,7 @@ const navLinks = [
         {navLinks.map(link => (
           <a
             href={link.href}
+            data-i18n={link.key}
             class="text-sm text-slate-400 hover:text-cyan-400 transition-colors duration-200 font-medium"
           >
             {link.label}
@@ -29,12 +30,20 @@ const navLinks = [
         ))}
       </nav>
 
-      <a
-        href="#contact"
-        class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-medium hover:bg-cyan-500/20 hover:border-cyan-500/50 transition-all duration-200"
-      >
-        Get in touch
-      </a>
+      <div class="hidden md:flex items-center gap-3">
+        <!-- Language toggle -->
+        <div class="flex items-center gap-0.5 bg-white/5 border border-white/10 rounded-lg p-0.5">
+          <button data-lang-btn="en" class="lang-active px-2.5 py-1 rounded-md text-xs font-bold text-slate-400 transition-colors cursor-pointer">EN</button>
+          <button data-lang-btn="pt" class="px-2.5 py-1 rounded-md text-xs font-bold text-slate-400 transition-colors cursor-pointer">PT</button>
+        </div>
+        <a
+          href="#contact"
+          data-i18n="nav.cta"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-medium hover:bg-cyan-500/20 hover:border-cyan-500/50 transition-all duration-200"
+        >
+          Get in touch
+        </a>
+      </div>
 
       <!-- Mobile menu button -->
       <button
@@ -53,12 +62,17 @@ const navLinks = [
 
     <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 px-6 py-4 flex flex-col gap-4">
+      <!-- Mobile language toggle -->
+      <div class="flex items-center gap-0.5 bg-white/5 border border-white/10 rounded-lg p-0.5 w-fit">
+        <button data-lang-btn="en" class="lang-active px-3 py-1.5 rounded-md text-xs font-bold text-slate-400 transition-colors cursor-pointer">EN</button>
+        <button data-lang-btn="pt" class="px-3 py-1.5 rounded-md text-xs font-bold text-slate-400 transition-colors cursor-pointer">PT</button>
+      </div>
       {navLinks.map(link => (
-        <a href={link.href} class="text-slate-300 hover:text-cyan-400 transition-colors py-1 text-sm font-medium">
+        <a href={link.href} data-i18n={link.key} class="text-slate-300 hover:text-cyan-400 transition-colors py-1 text-sm font-medium">
           {link.label}
         </a>
       ))}
-      <a href="#contact" class="mt-2 text-center px-4 py-2 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-medium">
+      <a href="#contact" data-i18n="nav.cta" class="mt-2 text-center px-4 py-2 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-medium">
         Get in touch
       </a>
     </div>
@@ -75,7 +89,6 @@ const navLinks = [
     iconOpen?.classList.toggle('hidden', !open);
     iconClose?.classList.toggle('hidden', open);
   });
-  // Close mobile menu on link click
   menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     menu.classList.add('hidden');
     iconOpen?.classList.remove('hidden');
