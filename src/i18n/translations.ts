@@ -40,9 +40,10 @@ const translations: Record<Lang, Record<string, string>> = {
     'tech.cat.3':  'Observability',
     'tech.cat.4':  'Security',
     'tech.cat.5':  'CI / CD & Containers',
+    'tech.cat.6':  'Virtualisation',
 
     'why.stat.0': 'Years in cloud engineering',
-    'why.stat.1': 'Production clusters managed',
+    'why.stat.1': 'Workloads running with HA & automated failover',
     'why.stat.2': 'Major cloud platforms',
     'why.stat.3': 'Security-first mindset',
     'why.label':  'Why Cyberules',
@@ -113,9 +114,10 @@ const translations: Record<Lang, Record<string, string>> = {
     'tech.cat.3': 'Observabilidade',
     'tech.cat.4': 'Segurança',
     'tech.cat.5': 'CI/CD e Contentores',
+    'tech.cat.6': 'Virtualização',
 
     'why.stat.0': 'Anos em engenharia cloud',
-    'why.stat.1': 'Clusters em produção geridos',
+    'why.stat.1': 'Workloads em execução com HA e failover automático',
     'why.stat.2': 'Principais plataformas cloud',
     'why.stat.3': 'Foco em segurança',
     'why.label':  'Porquê a Cyberules',
